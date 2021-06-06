@@ -4,8 +4,11 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let sUrl = document.getElementById('name').value;
 
-    console.log('Url: ' + sUrl)
+    console.log('Url: ' + sUrl);
+    document.getElementById('errorid').innerHTML = '';
+
     if (Client.checkForName(sUrl)) {
+        document.getElementById('msgid').innerHTML = 'Loading...';
         fetch('http://localhost:8081/process', {
             method: 'POST',
             credentials: 'same-origin',
@@ -17,6 +20,7 @@ function handleSubmit(event) {
         })
             .then(res => res.json())
             .then(function (res) {
+                document.getElementById('msgid').innerHTML = 'Done.';
                 document.getElementById('model').innerHTML = 'Model: ' + res.model;
                 document.getElementById('score_tag').innerHTML = 'Score: ' + res.score_tag;
                 document.getElementById('agreement').innerHTML = 'Agreement: ' + res.agreement;
@@ -25,7 +29,7 @@ function handleSubmit(event) {
                 document.getElementById('irony').innerHTML = 'Irony: ' + res.irony;
             })
     } else {
-        alert ('Please enter a valid URL')
+        document.getElementById('errorid').innerHTML = 'Please enter a valid URL';
     };
 }
 

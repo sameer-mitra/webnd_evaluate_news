@@ -10,7 +10,7 @@ const mockAPIResponse = require('./mockAPI.js')
 const app = express()
 
 dotenv.config();
-const api_key = 'ce42eefb1770d329b7adde8fdbc5345a'; //process.env.API_KEY;
+const api_key =  process.env.API_KEY; 'ce42eefb1770d329b7adde8fdbc5345a';
 
 app.use(bodyParser.json());
 app.use(cors());
