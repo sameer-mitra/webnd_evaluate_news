@@ -8,7 +8,7 @@
     <body>
 
         <header>
-            <h1>Evaluate News Articles</h1>>
+            <h1>Evaluate New Articles - Sentiment Analysis</h1>>
         </header>
 
         <main>
@@ -25,13 +25,13 @@
 
             <section id='resultsid'>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
-                <div id="model"></div>
-                <div id="score_tag"></div>
-                <div id="agreement"></div>
-                <div id="subjectivity"></div>
-                <div id="confidence"></div>
-                <div id="irony"></div>
+                <div class="resultitem" id="results"></div>
+                <div class="resultitem" id="model"></div>
+                <div class="resultitem" id="score_tag"></div>
+                <div class="resultitem" id="agreement"></div>
+                <div class="resultitem" id="subjectivity"></div>
+                <div class="resultitem" id="confidence"></div>
+                <div class="resultitem" id="irony"></div>
             </section>
 
             
@@ -40,6 +40,14 @@
         <footer>
             <p>Developed using Meaning Cloud API, Udacity Project by Sameer Mitra</p>
         </footer>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
     </body>
 </html>
