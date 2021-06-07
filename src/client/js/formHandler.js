@@ -7,7 +7,7 @@ function handleSubmit(event) {
     console.log('Url: ' + sUrl);
     document.getElementById('errorid').innerHTML = '';
 
-    if (Client.checkForName(sUrl)) {
+    if (Client.checkUrl(sUrl)) {
         document.getElementById('msgid').innerHTML = 'Loading...';
         fetch('http://localhost:8081/process', {
             method: 'POST',
